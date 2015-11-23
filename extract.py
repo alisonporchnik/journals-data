@@ -22,21 +22,21 @@ print(first_row_string)
 
 search_field = input('Enter field to search: ')
 search_string = raw_input('Search for what tag? ')
+screen_or_file = input('Print to screen (0) or print to file (1)?')
+if screen_or_file == 1:
+    file_name = raw_input('Enter filename: ')
 
+if screen_or_file == 0:
+    for row in reader:
+        if search_string in row[search_field]:
+            print(row)
 
-
-for row in reader:
-    if search_string in row[search_field]:
-        print(row)
-
-
-
-
-# result = {}
-# for row in reader:
-#     key = row[0]
-#     if key in result:
-#         # implement your duplicate row handling here
-#         pass
-#     result[key] = row[1:]
-# print result
+if screen_or_file == 1:
+    with open(file_name, 'w') as fp:
+        a = csv.writer(fp, delimiter=',')
+        data = []
+        for row in reader:
+            if search_string in row[search_field]:
+                data.append(row)
+        a.writerows(data)    
+    
