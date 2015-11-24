@@ -1,5 +1,12 @@
 import csv
-reader = csv.reader(open('data.csv','rU'))
+import sys
+
+
+# Start the script with "python extract.py <name_of_file>" on the command line
+
+filename = sys.argv[-1]
+
+reader = csv.reader(open(filename,'rU'))
 
 for row in reader:
     first_row = row
@@ -22,7 +29,7 @@ print(first_row_string)
 
 search_field = input('Enter field to search: ')
 search_string = raw_input('Search for what tag? ')
-screen_or_file = input('Print to screen (0) or print to file (1)?')
+screen_or_file = input('Print to screen (0) or print to file (1)? ')
 if screen_or_file == 1:
     file_name = raw_input('Enter filename: ')
 
