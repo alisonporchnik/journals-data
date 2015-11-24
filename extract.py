@@ -1,5 +1,5 @@
 import csv
-reader = csv.reader(open('x.csv','rU'))
+reader = csv.reader(open('data.csv','rU'))
 
 for row in reader:
     first_row = row

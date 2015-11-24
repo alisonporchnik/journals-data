@@ -1,4 +1,0 @@
-string = 'hellofoo'
-
-if foo in string:
-    
